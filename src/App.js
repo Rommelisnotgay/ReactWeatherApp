@@ -47,7 +47,9 @@ function App() {
 
   useEffect(() => {
     i18n.changeLanguage("en");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   useEffect(() => {
     setTime(moment().format("MMM Do YY"));
 
@@ -66,22 +68,25 @@ function App() {
         const max = Math.round(response.data.main.temp_max - 272.15);
         const des = response.data.weather[0].description;
         const icon = response.data.weather[0].icon;
-        setTemp({
-          ...temp,
+        setTemp((prevTemp) => ({
+          ...prevTemp,
           number: responseTemp,
           min: min,
           max: max,
           description: des,
           icon: `https://openweathermap.org/img/wn/${icon}@2x.png`,
-        });
+        }));
       })
       .catch(function (error) {
         console.log(error);
       });
 
     return () => {
-      cancelAxios();
+      if (cancelAxios) {
+        cancelAxios();
+      }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const currentLang = i18n.language;
   return (
