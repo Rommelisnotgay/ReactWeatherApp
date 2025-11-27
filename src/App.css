@@ -1,38 +1,53 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: eng;
+  src: url("../public/fonts/Anton-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: ara;
+  src: url("../public/fonts/Fustat-Bold.ttf") format("truetype");
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-.App-header {
-  background-color: #282c34;
+body {
+  background: linear-gradient(135deg, #0052d0 0%, #00a8ff 50%, #0066ff 100%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+  color: #333;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: 14px;
 }
 
-.App-link {
-  color: #61dafb;
+/* ==================== Base Styles ==================== */
+.cloud {
+  font-size: 200px !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media screen and (max-width: 470px) {
+  .cloud {
+    font-size: 100px !important;
   }
-  to {
-    transform: rotate(360deg);
+}
+@media screen and (max-width: 360px) {
+  .cloud {
+    font-size: 70px !important;
+  }
+}
+@media screen and (max-width: 320px) {
+  .cloud {
+    font-size: 50px !important;
   }
 }
